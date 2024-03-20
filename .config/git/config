@@ -1,0 +1,26 @@
+[user]
+  name = Aleksej
+  email = invinovic@gmail.com
+[alias]
+  hist = log --pretty=format:'%C(yellow)[%ad]%C(reset) %C(green)[%h]%C(reset) | %C(red)%s %C(bold red){{%an}}%C(reset) %C(blue)%d%C(reset)' --graph --date=short
+
+; [difftool "fugitive"]
+;   cmd = nvim -d -c \"windo normal gg=G\" $LOCAL $MERGED $REMOTE
+;   trustExitCode = false
+;   keepBackup = false
+
+; [core]
+;   pager = delta
+
+; [interactive]
+;   diffFilter = delta --color-only
+
+; [delta]
+;   navigate = true  # use n and N to move between diff sections
+;   side-by-side = true
+
+; [merge]
+;   conflictstyle = diff3
+
+; [diff]
+;   colorMoved = default
