@@ -1,0 +1,3 @@
+# How to live with macOS
+
+doc on the way...
