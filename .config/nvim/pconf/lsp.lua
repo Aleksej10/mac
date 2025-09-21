@@ -17,6 +17,7 @@ local opts = { noremap=true, silent=true }
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+  print("Attached to " .. client.name)
   -- Enable completion triggered by <c-x><c-o>
   -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -37,63 +38,56 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require('lspconfig.configs').vscode_css = {
-  default_config = {
-    cmd = { 'vscode-css-language-server', '--stdio' },
-    root_dir = require('lspconfig').util.root_pattern('.git'),
-    filetypes = { 'css', 'scss', 'sass' },
-  },
+vim.lsp.config['vscode_css'] = {
+  cmd = { 'vscode-css-language-server', '--stdio' },
+  filetypes = { 'css', 'scss', 'sass' },
 }
 
-require('lspconfig.configs').vscode_html = {
-  default_config = {
-    cmd = { 'vscode-html-language-server', '--stdio' },
-    root_dir = require('lspconfig').util.root_pattern('.git'),
-    filetypes = { 'html' },
-  },
+vim.lsp.config['vscode_html'] = {
+  cmd = { 'vscode-html-language-server', '--stdio' },
+  filetypes = { 'html' },
 }
 
-require('lspconfig.configs').vscode_js = {
-  default_config = {
-    cmd = { 'vscode-eslint-language-server', '--stdio' },
-    root_dir = require('lspconfig').util.root_pattern('.eslintrc'),
-    filetypes = { 'javascript' },
-  },
+vim.lsp.config['vscode_js'] = {
+  cmd = { 'vscode-eslint-language-server', '--stdio' },
+  filetypes = { 'javascript' },
 }
 
-require('lspconfig.configs').vscode_json = {
-  default_config = {
-    cmd = { 'vscode-json-language-server', '--stdio' },
-    root_dir = require('lspconfig').util.root_pattern('.git'),
-    filetypes = { 'json' },
-  },
+vim.lsp.config['vscode_json'] = {
+  cmd = { 'vscode-json-language-server', '--stdio' },
+  filetypes = { 'json' },
 }
+
+vim.lsp.config['bundle_solargraph'] = {
+  cmd = { 'bundle', 'exec', 'solargraph', 'stdio' },
+  filetypes = { 'ruby' },
+}
+
+vim.lsp.config('*', {
+  capabilities = require('cmp_nvim_lsp').default_capabilities(),
+  on_attach = on_attach,
+  root_markers = { '.git' },
+  -- root_dir = require('lspconfig.util').root_pattern('.git'),
+})
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = { 
   'pyright', 
   'rust_analyzer', 
-  'solargraph',
-  'tsserver', 
+  'bundle_solargraph',
+  -- 'solargraph',
   'gopls', 
   'ccls', 
 
+  'ts_ls', 
   -- 'vscode_js',
   'vscode_css',
   'vscode_html',
   'vscode_json',
 }
 
-for _, lsp in pairs(servers) do
-  require('lspconfig')[lsp].setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    flags = {
-      -- This will be the default in neovim 0.7+
-      debounce_text_changes = 150,
-    }
-  }
+for _, server in pairs(servers) do
+  vim.lsp.enable(server)
 end

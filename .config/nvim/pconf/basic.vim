@@ -18,6 +18,7 @@ set scrolloff=3
 set shortmess+=c
 set wildmode=longest:full,full
 set noshowmode
+set synmaxcol=250
 let g:elite_mode=1
 
 " Disables automatic commenting on newline:
@@ -102,6 +103,7 @@ inoremap <A-Space> <esc>A<space>
 inoremap <A-=> <esc>A=
 inoremap <A-.> <esc>A.
 inoremap <A-,> <esc>A,
+inoremap <leader><space><space> <esc>A<space>
 inoremap <A-{> <esc>A{}<left><cr><esc>O
 
 nnoremap <A-;> A;<esc>
@@ -110,6 +112,7 @@ nnoremap <A-Space> A<space>
 nnoremap <A-=> A=
 nnoremap <A-.> A.
 nnoremap <D-,> A,
+nnoremap <leader><space><space> A<space>
 nnoremap <A-{> A{}<left><cr><esc>O
 
 nnoremap <A-i> gT
@@ -126,10 +129,12 @@ nnoremap <A-9> 9gt
 nnoremap <A-0> 10gt
 
 " for mac
+inoremap <D-;> <esc>A;<esc>
 inoremap <D-.> <esc>A.
 inoremap <D-,> <esc>A,
 inoremap <D-{> <esc>A{}<left><cr><esc>O
 
+nnoremap <D-;> A;<esc>
 nnoremap <D-.> A.
 nnoremap <D-,> A,
 nnoremap <D-{> A{}<left><cr><esc>O

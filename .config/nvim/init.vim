@@ -48,6 +48,11 @@ call plug#begin('$HOME/.config/nvim/plugged')
 
   Plug 'nvim-treesitter/nvim-treesitter' , {'do': ':TSUpdate'}
 
+  Plug 'nikvdp/ejs-syntax'
+
+  Plug 'terrastruct/d2-vim'
+  Plug 'ravsii/tree-sitter-d2'
+
   " Plug 'ray-x/go.nvim'
   " Plug 'ray-x/guihua.lua'
 
@@ -72,6 +77,7 @@ call plug#end()
 
 " " call SourceLocal('rust.lua')
 call SourceLocal('color_preview.vim')
+call SourceLocal('d2.vim')
 call SourceLocal('colorscheme.vim')
 call SourceLocal('indent.lua')
 call SourceLocal('cursorline.lua')
@@ -87,6 +93,7 @@ call SourceLocal('telescope.lua')
 call SourceLocal('gitdiff.lua')
 call SourceLocal('neovide.lua')
 call SourceLocal('vscode.lua')
+call SourceLocal('lang.vim')
 " call SourceLocal('go.lua')
 
 call SourceLocal('basic.vim')

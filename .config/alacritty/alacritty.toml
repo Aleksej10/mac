@@ -1,10 +1,11 @@
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 args = ["-l"]
 
 [font]
 normal = { family = "BlexMono Nerd Font Mono", style = "Regular" }
 size = 12
+# size = 4
 
 [window]
 opacity = 0.6
@@ -17,3 +18,5 @@ hide_when_typing = false
 
 [scrolling]
 history = 100000
+
+[terminal]

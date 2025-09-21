@@ -4,23 +4,31 @@
 [alias]
   hist = log --pretty=format:'%C(yellow)[%ad]%C(reset) %C(green)[%h]%C(reset) | %C(red)%s %C(bold red){{%an}}%C(reset) %C(blue)%d%C(reset)' --graph --date=short
 
-; [difftool "fugitive"]
-;   cmd = nvim -d -c \"windo normal gg=G\" $LOCAL $MERGED $REMOTE
-;   trustExitCode = false
-;   keepBackup = false
+[difftool "fugitive"]
+  cmd = nvim -d -c \"windo normal gg=G\" $LOCAL $MERGED $REMOTE
+  trustExitCode = false
+  keepBackup = false
 
-; [core]
-;   pager = delta
+[core]
+  pager = delta
 
-; [interactive]
-;   diffFilter = delta --color-only
+[interactive]
+  diffFilter = delta --color-only
 
-; [delta]
-;   navigate = true  # use n and N to move between diff sections
-;   side-by-side = true
+[delta]
+  navigate = true  # use n and N to move between diff sections
+  side-by-side = true
 
-; [merge]
-;   conflictstyle = diff3
+[merge]
+  conflictstyle = diff3
 
-; [diff]
-;   colorMoved = default
+[diff]
+  colorMoved = default
+
+[pull]
+  rebase = false
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

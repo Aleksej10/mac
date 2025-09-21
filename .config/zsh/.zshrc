@@ -165,6 +165,8 @@ alias v='neovide'
 alias debian='ssh -v a@localhost -p 2222'
 alias vpn="sudo /usr/local/opt/openvpn/sbin/openvpn $HOME/dev/si.ovpn"
 
+alias w2utf='iconv -f WINDOWS-1250 -t UTF-8'
+
 # 
 alias hq_pwc_sync="harlequin --config-path /Users/a/.config/harlequin/harlequin.toml --profile 'pwc_sync PROD'"
 
@@ -180,7 +182,7 @@ colors
 [ -f "$FZF_INSTALL/shell/completion.zsh" ] && source "$FZF_INSTALL/shell/completion.zsh"
 [ -f "$FZF_INSTALL/shell/key-bindings.zsh" ] && source "$FZF_INSTALL/shell/key-bindings.zsh"
 
-source '/usr/local/Cellar/rbenv/1.2.0/libexec/../completions/rbenv.zsh'
+source '/usr/local/share/zsh/site-functions/_rbenv'
 command rbenv rehash 2>/dev/null
 rbenv() {
   local command

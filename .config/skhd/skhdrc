@@ -197,10 +197,11 @@ shift + alt - 0x2F : yabai -m window --display 2
 alt - q : yabai -m window --close
 
 # apps 
-alt - d : open -na Alacritty --args -e ssh -v a@localhost -p 2222
+# alt - d : open -na Alacritty --args -e ssh -v a@localhost -p 2222
 alt - return : open -na Alacritty
-alt - g : open -na "Chromium"
+alt - g : open -na "Google Chrome"
 shift + alt - g : open -na "Chromium" --args --incognito
-alt - m : open -na Element
+# alt - m : open -na Element
 alt - r : open -na Alacritty --args -e ranger ~
+shift + alt - r : open -na Alacritty --args -e spf ~
 alt - h : open -na Alacritty --args -e sudo htop
